@@ -269,6 +269,19 @@ const supabase = window.supabase.createClient(
 
 console.log('Supabase Connected');
 </script>
+    <script>
+async function loadEmployees() {
+
+    const { data, error } = await supabase
+        .from('employees')
+        .select('*');
+
+    console.log(data);
+
+}
+
+loadEmployees();
+</script>
 </body>
 </html>
 ```
