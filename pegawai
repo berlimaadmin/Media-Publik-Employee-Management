@@ -286,6 +286,30 @@ document.getElementById("searchInput")
 loadData();
 
 </script>
+<script>
+const supabaseUrl = 'https://aqqnttvcczpztejhppns.supabase.co/rest/v1/';
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFxcW50dHZjY3pwenRlamhwcG5zIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA0NjIyODYsImV4cCI6MjA5NjAzODI4Nn0.wpHTaV-vmMoEjI2-tsTXIL2P3moyNnRMslaNgt2KjRk';
+
+const supabase = window.supabase.createClient(
+    supabaseUrl,
+    supabaseKey
+);
+
+console.log('Supabase Connected');
+</script>
+    <script>
+async function loadEmployees() {
+
+    const { data, error } = await supabase
+        .from('employees')
+        .select('*');
+
+    console.log(data);
+
+}
+
+loadEmployees();
+</script>
 
 </body>
 </html>
